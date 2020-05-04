@@ -1,6 +1,5 @@
 const path = require('path')
-require('dotenv').config({path:path.resolve(__dirname,"../config/dev.env")})
-const express = require('express')
+if (process.env.NODE_ENV !== 'production') require("dotenv").config({ path: path.resolve(__dirname, `../config/${process.env.NODE_ENV}.env`)})const express = require('express')
 const hbs = require('hbs')
 const targetLocation = require('./utils/geocode')
 const forecast = require('./utils/forecast')
